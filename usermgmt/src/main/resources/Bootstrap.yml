@@ -1,0 +1,37 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: UserManagementService
+
+  cloud:
+    config:
+      name: microservices-config
+      uri: http://localhost:8888/
+      username: config_user
+      password: config_user
+
+rabbitmq:
+  host: localhost
+  port: 5672
+  virtual-host: /
+  username: guest
+  password: guest
+
+profiles:
+  active: DEV
+
+data:
+  mongodb:
+    database: microservice
+    host: localhost
+    port: 27017
+    repositories:
+      type: auto
+    uri: mongodb://localhost:27017/microservice
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8089/eureka
